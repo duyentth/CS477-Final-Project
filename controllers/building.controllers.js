@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const buildingModel = require ('../models/building.model');
 const userModel = require('../models/user.models');
+//const PRIVATEKEY = 'meomeomeo';
 
 
 //CRUD a user/admin
@@ -88,7 +89,7 @@ exports.userSignin = async (req, res) => {
 };
 
 
-//middleware validateToken
+/*//middleware validateToken
 exports.validateToken = async (req, res, next) => {
     if(!req.headers.authorization) {
         return res.status(401).send("Please provide the valid token");
@@ -100,6 +101,7 @@ exports.validateToken = async (req, res, next) => {
     const token = splits[1];
     try {
         const user = jwt.verify(token, PRIVATEKEY);
+        console.log('user from token is: ', user);
         req.password = user.password;
         req.email = user.email;
         next();
@@ -107,7 +109,7 @@ exports.validateToken = async (req, res, next) => {
         res.status(403).send("Forbidden. Wrong JWT");
         return;
     }
-}
+}*/
 
 /**temporaly remove
 //CRUD devices
